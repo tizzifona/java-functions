@@ -10,8 +10,8 @@ Este archivo contiene varios ejercicios para poder practicar el uso de funciones
 5. DiceJack
 
 ### Instrucciones
-1. Acepta el reto que te hemos enviado por github classroom 
-2. git clone <repositorio>
+1. Haz un fork de este repositorio a tu cuenta personal de github 
+2. Clona el repositorio creado en tu cuenta de github con el comando ```git clone <nombre-del-repositorio>```
 3. Lee atentamente el archivo Resources.md 
 4. Lee las instrucciones para cada ejercicio.
 5. Compila y ejecuta el código por cada archivo y mira el resultado en la terminal.
