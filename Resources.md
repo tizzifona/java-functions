@@ -25,4 +25,4 @@ public static void nameOfFunction(){
 https://www.w3schools.com/java/java_methods.asp
 
 * System exit method
-https://www.javatpoint.com/post/java-system-exit-method 
+https://www.geeksforgeeks.org/system-exit-in-java/
