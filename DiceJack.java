@@ -1,3 +1,6 @@
+import java.util.Random;
+import java.util.Scanner;
+
 public class DiceJack {
     public static void main(String[] args) {
 
@@ -28,6 +31,45 @@ public class DiceJack {
         - Imprimir la suma de los números escogidos por el usuario y la suma de los números que salieron en los dados.
         - Imprimir si el usuario ganó o perdió.
         */
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Escoge 3 números entre 1 y 6 (incluidos):");
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+        int num3 = scanner.nextInt();
+
+        if (isLessThanOne(num1, num2, num3) || isHigherThanSix(num1, num2, num3)) {
+            System.out.println("Uno o más números están fuera del rango permitido (1-6). Fin del juego.");
+            System.exit(0);
+        }
+
+        System.out.println("¿Deseas lanzar los dados? (si/no)");
+        scanner.nextLine();
+        String respuesta = scanner.nextLine();
+
+        if (!respuesta.equalsIgnoreCase("si")) {
+            System.out.println("Has decidido no jugar. Fin del juego.");
+            System.exit(0);
+        }
+
+        int roll1 = rollDice();
+        int roll2 = rollDice();
+        int roll3 = rollDice();
+
+        int userSum = num1 + num2 + num3;
+        int diceSum = roll1 + roll2 + roll3;
+
+        System.out.println("Tu suma: " + userSum);
+        System.out.println("Suma de los dados: " + diceSum);
+
+        if (userWon(userSum, diceSum)) {
+            System.out.println("¡Ganaste!");
+        } else {
+            System.out.println("Perdiste.");
+        }
+
+        scanner.close();
     }
 
 
@@ -45,7 +87,9 @@ public class DiceJack {
      */
     
     // Escribe tu código aquí
-
+    public static boolean isLessThanOne(int num1, int num2, int num3) {
+        return num1 < 1 || num2 < 1 || num3 < 1;
+    }
 
     /**
      * 
@@ -61,7 +105,9 @@ public class DiceJack {
      */
 
     // Escribe tu código aquí
-
+    public static boolean isHigherThanSix(int num1, int num2, int num3) {
+        return num1 > 6 || num2 > 6 || num3 > 6;
+    }
 
     /**
      * 
@@ -76,7 +122,9 @@ public class DiceJack {
      */
 
     // Escribe tu código aquí
-
+    public static boolean userWon(int sumNumbers, int sumDiceRolls) {
+        return sumNumbers > sumDiceRolls && (sumNumbers - sumDiceRolls) < 5;
+    }
 
     /**
      * Function name: rollDice
@@ -88,6 +136,8 @@ public class DiceJack {
      */
 
     // Escribe tu código aquí
-
-
+    public static int rollDice() {
+        Random random = new Random();
+        return random.nextInt(6) + 1;
+    }
 }
